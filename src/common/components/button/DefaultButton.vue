@@ -1,5 +1,5 @@
 <template>
-  <v-btn color="success">{{ title }}</v-btn>
+  <v-btn v-bind:color="color">{{ title }}</v-btn>
 </template>
 
 <script>

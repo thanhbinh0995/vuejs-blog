@@ -1,19 +1,5 @@
-import Vue from "vue";
 import { ArticlesService, CommentsService, FavoriteService } from "@/services";
 import { MUTATIONS_TYPE, ARTICLE_TYPE } from "@/types";
-
-const initialState = {
-  article: {
-    author: {},
-    title: "",
-    description: "",
-    body: "",
-    tagList: []
-  },
-  comments: []
-};
-
-export const state = { ...initialState };
 
 export const actions = {
   async [ARTICLE_TYPE.FETCH_ARTICLE](context, articleSlug, prevArticle) {
@@ -71,41 +57,4 @@ export const actions = {
   [ARTICLE_TYPE.ARTICLE_RESET_STATE]({ commit }) {
     commit(MUTATIONS_TYPE.RESET_STATE);
   }
-};
-
-/* eslint no-param-reassign: ["error", { "props": false }] */
-export const mutations = {
-  [MUTATIONS_TYPE.SET_ARTICLE](state, article) {
-    state.article = article;
-  },
-  [MUTATIONS_TYPE.SET_COMMENTS](state, comments) {
-    state.comments = comments;
-  },
-  [MUTATIONS_TYPE.TAG_ADD](state, tag) {
-    state.article.tagList = state.article.tagList.concat([tag]);
-  },
-  [MUTATIONS_TYPE.TAG_REMOVE](state, tag) {
-    state.article.tagList = state.article.tagList.filter(t => t !== tag);
-  },
-  [MUTATIONS_TYPE.RESET_STATE]() {
-    for (let f in state) {
-      Vue.set(state, f, initialState[f]);
-    }
-  }
-};
-
-const getters = {
-  article(state) {
-    return state.article;
-  },
-  comments(state) {
-    return state.comments;
-  }
-};
-
-export default {
-  state,
-  actions,
-  mutations,
-  getters
 };

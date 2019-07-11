@@ -1,11 +1,6 @@
 import { ArticlesService, CommentsService } from "@/services";
 import { MUTATIONS_TYPE, ARTICLE_TYPE } from "@/types";
 
-export const state = {
-  article: {},
-  comments: []
-};
-
 export const actions = {
   [ARTICLE_TYPE.FETCH_ARTICLE](context, articleSlug) {
     return ArticlesService.get(articleSlug)
@@ -25,20 +20,4 @@ export const actions = {
         throw new Error(error);
       });
   }
-};
-
-/* eslint no-param-reassign: ["error", { "props": false }] */
-export const mutations = {
-  [MUTATIONS_TYPE.SET_ARTICLE](state, article) {
-    state.article = article;
-  },
-  [MUTATIONS_TYPE.SET_COMMENTS](state, comments) {
-    state.comments = comments;
-  }
-};
-
-export default {
-  state,
-  actions,
-  mutations
 };

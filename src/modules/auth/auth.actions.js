@@ -1,23 +1,8 @@
 import { ApiService } from "@/services";
-import { getToken, saveToken, destroyToken } from "@/services";
+import { getToken } from "@/services";
 import { MUTATIONS_TYPE, USER_TYPE } from "@/types";
 
-const state = {
-  errors: null,
-  user: {},
-  isAuthenticated: !!getToken()
-};
-
-const getters = {
-  currentUser(state) {
-    return state.user;
-  },
-  isAuthenticated(state) {
-    return state.isAuthenticated;
-  }
-};
-
-const actions = {
+export const actions = {
   [USER_TYPE.LOGIN](context, credentials) {
     return new Promise(resolve => {
       ApiService.post("users/login", { user: credentials })
@@ -41,7 +26,10 @@ const actions = {
           resolve(data);
         })
         .catch(({ response }) => {
-          context.commit(MUTATIONS_TYPE.SET_ERROR, response.data.errors);
+          context.commit(
+            MUTATIONS_TYPE.SET_ERROR,
+            response && response.data.errors
+          );
           reject(response);
         });
     });
@@ -54,7 +42,10 @@ const actions = {
           context.commit(MUTATIONS_TYPE.SET_AUTH, data.user);
         })
         .catch(({ response }) => {
-          context.commit(MUTATIONS_TYPE.SET_ERROR, response.data.errors);
+          context.commit(
+            MUTATIONS_TYPE.SET_ERROR,
+            response && response.data.errors
+          );
         });
     } else {
       context.commit(MUTATIONS_TYPE.PURGE_AUTH);
@@ -77,29 +68,4 @@ const actions = {
       return data;
     });
   }
-};
-
-const mutations = {
-  [MUTATIONS_TYPE.SET_ERROR](state, error) {
-    state.errors = error;
-  },
-  [MUTATIONS_TYPE.SET_AUTH](state, user) {
-    state.isAuthenticated = true;
-    state.user = user;
-    state.errors = {};
-    saveToken(state.user.token);
-  },
-  [MUTATIONS_TYPE.PURGE_AUTH](state) {
-    state.isAuthenticated = false;
-    state.user = {};
-    state.errors = {};
-    destroyToken();
-  }
-};
-
-export default {
-  state,
-  actions,
-  mutations,
-  getters
 };

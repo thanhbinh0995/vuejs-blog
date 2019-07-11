@@ -1,18 +1,7 @@
 import { ApiService } from "@/services";
 import { MUTATIONS_TYPE, USER_TYPE } from "@/types";
 
-const state = {
-  errors: {},
-  profile: {}
-};
-
-const getters = {
-  profile(state) {
-    return state.profile;
-  }
-};
-
-const actions = {
+export const actions = {
   [USER_TYPE.FETCH_PROFILE](context, payload) {
     const { username } = payload;
     return ApiService.get("profiles", username)
@@ -49,21 +38,4 @@ const actions = {
         // context.commit(MUTATIONS_TYPE.SET_ERROR, response.data.errors)
       });
   }
-};
-
-const mutations = {
-  // [MUTATIONS_TYPE.SET_ERROR] (state, error) {
-  //   state.errors = error
-  // },
-  [MUTATIONS_TYPE.SET_PROFILE](state, profile) {
-    state.profile = profile;
-    state.errors = {};
-  }
-};
-
-export default {
-  state,
-  actions,
-  mutations,
-  getters
 };
