@@ -1,5 +1,6 @@
 import Vue from "vue";
-import { MUTATIONS_TYPE, ARTICLE_TYPE } from "@/types";
+import { MUTATIONS_TYPE } from "@/types";
+import { initialState } from "./article.state";
 
 export const mutations = {
   [MUTATIONS_TYPE.SET_ARTICLE](state, article) {
@@ -14,7 +15,7 @@ export const mutations = {
   [MUTATIONS_TYPE.TAG_REMOVE](state, tag) {
     state.article.tagList = state.article.tagList.filter(t => t !== tag);
   },
-  [MUTATIONS_TYPE.RESET_STATE]() {
+  [MUTATIONS_TYPE.RESET_STATE](state) {
     for (let f in state) {
       Vue.set(state, f, initialState[f]);
     }

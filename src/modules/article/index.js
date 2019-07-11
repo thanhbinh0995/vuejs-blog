@@ -1,17 +1,7 @@
 import { actions } from "./article.actions";
 import { getters } from "./article.getters";
 import { mutations } from "./article.mutations";
-
-const initialState = {
-  article: {
-    author: {},
-    title: "",
-    description: "",
-    body: "",
-    tagList: []
-  },
-  comments: []
-};
+import { initialState } from "./article.state";
 
 const state = { ...initialState };
 
