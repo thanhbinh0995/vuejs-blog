@@ -5,7 +5,7 @@
         <h1 class="logo-font">conduit</h1>
         <p>A place to share your knowledge.</p>
         <div>
-          <DefaultButton title="test"/>
+          <DefaultButton title="test" color="success"/>
         </div>
       </div>
     </div>

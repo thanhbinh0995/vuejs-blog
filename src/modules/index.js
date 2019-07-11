@@ -1,7 +1,7 @@
-import ArticleModule from "./article.module";
-import AuthModule from "./auth.module";
-import HomeModule from "./home.module";
-import ProfileModule from "./profile.module";
-import SettingModule from "./settings.module";
+import ArticleModule from "./article";
+import AuthModule from "./auth";
+import HomeModule from "./home";
+import ProfileModule from "./profile";
+import SettingModule from "./setting";
 
 export { ArticleModule, AuthModule, HomeModule, ProfileModule, SettingModule };
