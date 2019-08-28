@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <v-app>
-      <RwvHeader/>
+      <RwvHeader />
       <router-view></router-view>
-      <RwvFooter/>
+      <!-- <RwvFooter/> -->
     </v-app>
   </div>
 </template>

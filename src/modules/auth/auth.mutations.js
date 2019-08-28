@@ -1,4 +1,5 @@
 import { MUTATIONS_TYPE } from "@/types";
+import { destroyToken, saveToken } from "../../services";
 
 export const mutations = {
   [MUTATIONS_TYPE.SET_ERROR](state, error) {
