@@ -1,12 +1,20 @@
 <template>
   <div>
     <rwv-list-errors :errors="errors"></rwv-list-errors>
-    <form class="card comment-form" v-on:submit.prevent="onSubmit(slug, comment);">
+    <form
+      class="card comment-form"
+      v-on:submit.prevent="onSubmit(slug, comment)"
+    >
       <div class="card-block">
-        <textarea class="form-control" v-model="comment" placeholder="Write a comment..." rows="3"></textarea>
+        <textarea
+          class="form-control"
+          v-model="comment"
+          placeholder="Write a comment..."
+          rows="3"
+        ></textarea>
       </div>
       <div class="card-footer">
-        <img :src="userImage" class="comment-author-img">
+        <img :src="userImage" class="comment-author-img" />
         <button class="btn btn-sm btn-primary">Post Comment</button>
       </div>
     </form>

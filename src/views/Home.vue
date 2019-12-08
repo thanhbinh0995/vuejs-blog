@@ -5,7 +5,7 @@
         <h1 class="logo-font">conduit</h1>
         <p>A place to share your knowledge.</p>
         <div>
-          <DefaultButton title="test" color="success"/>
+          <DefaultButton title="test" color="success" />
         </div>
       </div>
     </div>
@@ -19,7 +19,8 @@
                   :to="{ name: 'home-my-feed' }"
                   class="nav-link"
                   active-class="active"
-                >Your Feed</router-link>
+                  >Your Feed</router-link
+                >
               </li>
               <li class="nav-item">
                 <router-link
@@ -27,7 +28,8 @@
                   exact
                   class="nav-link"
                   active-class="active"
-                >Global Feed</router-link>
+                  >Global Feed</router-link
+                >
               </li>
               <li class="nav-item" v-if="tag">
                 <router-link
@@ -47,7 +49,11 @@
           <div class="sidebar">
             <p>Popular Tags</p>
             <div class="tag-list">
-              <RwvTag v-for="(tag, index) in tags" :name="tag" :key="index"></RwvTag>
+              <RwvTag
+                v-for="(tag, index) in tags"
+                :name="tag"
+                :key="index"
+              ></RwvTag>
             </div>
           </div>
         </div>

@@ -12,21 +12,29 @@
           <div v-html="parseMarkdown(article.body)"></div>
           <ul class="tag-list">
             <li v-for="(tag, index) of article.tagList" :key="tag + index">
-              <RwvTag :name="tag" class="tag-default tag-pill tag-outline"></RwvTag>
+              <RwvTag
+                :name="tag"
+                class="tag-default tag-pill tag-outline"
+              ></RwvTag>
             </li>
           </ul>
         </div>
       </div>
-      <hr>
+      <hr />
       <div class="article-actions">
         <RwvArticleMeta :article="article" :actions="true"></RwvArticleMeta>
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-8 offset-md-2">
-          <RwvCommentEditor v-if="isAuthenticated" :slug="slug" :userImage="currentUser.image"></RwvCommentEditor>
+          <RwvCommentEditor
+            v-if="isAuthenticated"
+            :slug="slug"
+            :userImage="currentUser.image"
+          ></RwvCommentEditor>
           <p v-else>
             <router-link :to="{ name: 'login' }">Sign in</router-link>or
-            <router-link :to="{ name: 'register' }">sign up</router-link>to add comments on this article.
+            <router-link :to="{ name: 'register' }">sign up</router-link>to add
+            comments on this article.
           </p>
           <RwvComment
             v-for="(comment, index) in comments"

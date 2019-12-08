@@ -16,15 +16,19 @@
     <button class="btn btn-sm btn-outline-secondary" @click="toggleFollow">
       <i class="ion-plus-round"></i>
       <span>&nbsp;</span>
-      <span v-text="followUserLabel"/>
+      <span v-text="followUserLabel" />
     </button>
     <span>&nbsp;&nbsp;</span>
-    <button class="btn btn-sm" @click="toggleFavorite" :class="toggleFavoriteButtonClasses">
+    <button
+      class="btn btn-sm"
+      @click="toggleFavorite"
+      :class="toggleFavoriteButtonClasses"
+    >
       <i class="ion-heart"></i>
       <span>&nbsp;</span>
-      <span v-text="favoriteArticleLabel"/>
+      <span v-text="favoriteArticleLabel" />
       <span>&nbsp;</span>
-      <span class="counter" v-text="favoriteCounter"/>
+      <span class="counter" v-text="favoriteCounter" />
     </button>
   </span>
 </template>
