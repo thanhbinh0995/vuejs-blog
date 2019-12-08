@@ -3,16 +3,15 @@ image: node:latest # (1)
 stages:
   - build
   - test
-  - docker-deploy-image
-  - aws-deploy
 
-cache:
-  paths:
-    - node_modules/ # (2)
+# cache:
+#  paths:
+#    - node_modules/ # (2)
 
 install_dependencies:
   stage: build
   script:
+    - rm -rf node_modules
     - npm install # (3)
   artifacts:
     paths:
@@ -20,4 +19,4 @@ install_dependencies:
 
 testing:
   stage: test
-  script: npm test # (4)
+  script: npm run test # (4)
