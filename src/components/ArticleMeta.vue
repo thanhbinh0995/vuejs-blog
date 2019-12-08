@@ -1,17 +1,23 @@
 <template>
   <div class="article-meta">
-    <router-link :to="{ name: 'profile', params: { username: article.author.username } }">
-      <img :src="article.author.image">
+    <router-link
+      :to="{ name: 'profile', params: { username: article.author.username } }"
+    >
+      <img :src="article.author.image" />
     </router-link>
     <div class="article-info">
       <router-link
         :to="{ name: 'profile', params: { username: article.author.username } }"
         class="author"
-      >{{ article.author.username }}</router-link>
+        >{{ article.author.username }}</router-link
+      >
       <span class="date">{{ article.createdAt | date }}</span>
     </div>
     <template v-if="actions">
-      <rwv-article-actions :article="article" :canModify="isCurrentUser()"></rwv-article-actions>
+      <rwv-article-actions
+        :article="article"
+        :canModify="isCurrentUser()"
+      ></rwv-article-actions>
     </template>
     <template v-else>
       <button

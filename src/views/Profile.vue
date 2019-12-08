@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-10 offset-md-1">
-            <img :src="profile.image" class="user-img">
+            <img :src="profile.image" class="user-img" />
             <h4>{{ profile.username }}</h4>
             <p>{{ profile.bio }}</p>
             <div v-if="isCurrentUser()">
@@ -19,7 +19,7 @@
               <button
                 class="btn btn-sm btn-secondary action-btn"
                 v-if="profile.following"
-                @click.prevent="unfollow();"
+                @click.prevent="unfollow()"
               >
                 <i class="ion-plus-round"></i>
                 &nbsp;Unfollow
@@ -28,7 +28,7 @@
               <button
                 class="btn btn-sm btn-outline-secondary action-btn"
                 v-if="!profile.following"
-                @click.prevent="follow();"
+                @click.prevent="follow()"
               >
                 <i class="ion-plus-round"></i>
                 &nbsp;Follow
@@ -51,7 +51,8 @@
                   active-class="active"
                   exact
                   :to="{ name: 'profile' }"
-                >My Articles</router-link>
+                  >My Articles</router-link
+                >
               </li>
               <li class="nav-item">
                 <router-link
@@ -59,7 +60,8 @@
                   active-class="active"
                   exact
                   :to="{ name: 'profile-favorites' }"
-                >Favorited Articles</router-link>
+                  >Favorited Articles</router-link
+                >
               </li>
             </ul>
           </div>
