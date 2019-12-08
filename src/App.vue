@@ -13,7 +13,6 @@ import RwvHeader from "@/components/TheHeader";
 import RwvFooter from "@/components/TheFooter";
 
 export default {
-  name: "App",
   components: {
     RwvHeader,
     RwvFooter
