@@ -50,6 +50,6 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "serve": "vue-cli-service serve",
-    "test:unit": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit"
   }
 }
