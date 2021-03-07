@@ -10,8 +10,10 @@
     "babel-loader": "^8.0.0-beta.6",
     "babel-polyfill": "^6.26.0",
     "date-fns": "^1.30.1",
+    "express": "^4.17.1",
     "marked": "^0.6.3",
     "register-service-worker": "^1.6.2",
+    "serve-static": "^1.14.1",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
     "vue-router": "^3.0.6",
@@ -51,6 +53,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "serve": "vue-cli-service serve",
-    "test": "vue-cli-service test:unit"
+    "test": "vue-cli-service test:unit",
+    "start": "node server.js"
   }
 }
